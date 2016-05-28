@@ -7,7 +7,8 @@ $(document).ready(function(){
 		{name:"Social",img:"images/social.jpg"},
 		{name:"Medio Ambiente",img:"images/medioambiente.jpg"},
 		{name:"Estilo de Vida",img:"images/estilodevida.jpg"},
-		{name:"Artesania",img:"images/artesania.jpg"}];
+		{name:"Artesania",img:"images/artesania.jpg"},
+		{name:"Otros",img:"images/otros.jpg"}];
 
 	container = $(".container-topics");
 
