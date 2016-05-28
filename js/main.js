@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var topics;
+	var topics, container, row;
 	topics = [
 		{name:"Diseño",img:"images/diseño.jpg"},
 		{name:"Juegos",img:"images/juegos.jpg"},
@@ -9,13 +9,22 @@ $(document).ready(function(){
 		{name:"Estilo de Vida",img:"images/estilodevida.jpg"},
 		{name:"Artesania",img:"images/artesania.jpg"}];
 
+	container = $(".container-topics");
 
 	topics.forEach(function(elm,ind){
-		var t = document.querySelector("#topic_tpl");
+		var t,clone,tr,cloner;
+
+		if(ind % 3 === 0 ){
+			tr = document.querySelector("#row-topic-tpl");
+			cloner = document.importNode(tr.content, true);
+			row = $(cloner);			
+			container.append(row);
+		}
+
+		t = document.querySelector("#topic-tpl");
 		t.content.querySelector("img").src = elm.img; 
 		t.content.querySelector("a.button").innerHTML = elm.name;
-		var clone = document.importNode(t.content, true);
-		$(".row-topic").append(clone);
-		console.log(elm.name)
+		clone = document.importNode(t.content, true);
+		container.find("div.row").last().append($(clone));
 	});
 });
