@@ -1,109 +1,184 @@
-			<!DOCTYPE HTML>
-			<!--
-			Phase Shift by TEMPLATED
-			templated.co @templatedco
-			Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-		-->
-		<html>
-		<head>
-			<title>CrowdABC</title>
-			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-			<meta name="description" content="" />
-			<meta name="keywords" content="" />
-			<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-			<script src="js/jquery.min.js"></script>
-			<script src="js/jquery.dropotron.min.js"></script>
-			<script src="js/skel.min.js"></script>
-			<script src="js/skel-layers.min.js"></script>
-			<script src="js/init.js"></script>
-			<script src="js/main.js"></script>
-			<noscript>
-				<link rel="stylesheet" href="css/skel.css" />
-				<link rel="stylesheet" href="css/style.css" />
-				<link rel="stylesheet" href="css/style-wide.css" />
-			</noscript>
-			<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-		</head>
-		<body>
+<!DOCTYPE HTML>
+<!--
+	Phase Shift by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>CrowdABC</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="js/main.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+			<link rel="stylesheet" href="css/style.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 
-			<!-- Wrapper -->
-			<div class="wrapper style1">
+		<style>
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+		.modalDialog:target {
+			opacity:1;
+			pointer-events: auto;
+		}
+		.modalDialog > div {
+			width: 400px;
+			position: relative;
+			margin: 10% auto;
+			padding: 5px 20px 13px 20px;
+			border-radius: 10px;
+			background: #fff;
+			background: -moz-linear-gradient(#fff, #999);
+			background: -webkit-linear-gradient(#fff, #999);
+			background: -o-linear-gradient(#fff, #999);
+		}
+		.close {
+			background: #606061;
+			color: #FFFFFF;
+			line-height: 25px;
+			position: absolute;
+			right: -12px;
+			text-align: center;
+			top: -10px;
+			width: 24px;
+			text-decoration: none;
+			font-weight: bold;
+			-webkit-border-radius: 12px;
+			-moz-border-radius: 12px;
+			border-radius: 12px;
+			-moz-box-shadow: 1px 1px 3px #000;
+			-webkit-box-shadow: 1px 1px 3px #000;
+			box-shadow: 1px 1px 3px #000;
+		}
+		.close:hover {
+			background: #00d9ff;
+		}
 
-				<!-- Header -->
-				<div id="header" class="skel-panels-fixed">
-					<div id="logo">
-						<!--<h1><a href="index.html">crowdABC</a></h1>-->
-						<img src="images/cabclogo.png" height="40">
-						<!--<span class="tag">by TEMPLATED</span>-->
-					</div>
-					<nav id="nav">
-						<ul>
-							<li class="active"><a href="index.html">Home</a></li>
-			<li class="active"><a href="about.html">Quienes somos</a></li>
-			<li class="active"><a href="crowd.html">¿Que es Crowdfunding?</a></li>
-		</ul>
-	</nav>
-</div>
 
-<!-- Banner -->
-<div id="banner" class="container">
-	<section>
-		<p><strong>CrowdABC</strong> es la plataforma de <strong>crowdfunding</strong> de inversión de Hispanoamérica. Hacemos posible que cualquiera pueda invertir junto con inversores profesionales en emprendimientos apasionantes a cambio de derechos sobre las empresas</p>
-		<p>¿En que quieres <strong>invertir</strong>?</p>
-		</section>
-	</div>
+		</style>
 
-	<!-- Extra -->
-	<div id="extra">
-		<div class="container container-topics">
-						
+
+	</head>
+	<body>
+
+		<div id="openMessage" class="modalDialog">
+			<div>	<a href="#close" title="Cerrar" class="close">X</a>
+
+				<h2>Mensaje del equipo</h2>
+
+				<p>Esta es una versión Trial-Run de nuestra propuesta CrowdABC, Para nosotros es importante tu feedback. 
+				No debes colocar ninguna información personal pero por favor actua como si realmente fueras a invertir. </p>
+			</div>
 		</div>
-	</div>
 
-		<!-- Main -->
-		<div id="main">
+
+
+		<!-- Wrapper -->
+		<div class="wrapper style1">
+
+			<!-- Header -->
+			<div id="header" class="skel-panels-fixed">
+				<div id="logo">
+					<!--<h1><a href="index.html">crowdABC</a></h1>-->
+					<img src="images/cabclogo.png" height="40">
+					<!--<span class="tag">by TEMPLATED</span>-->
+				</div>
+				<nav id="nav">
+					<ul>
+						<li class="active"><a href="index.html#close">Home</a></li>
+						<li class="active"><a href="about.html">Quienes somos</a></li>
+						<li class="active"><a href="crowd.html">¿Que es Crowdfunding?</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Banner -->
+			<div id="banner" class="container">
+				<section>
+					<p><strong>CrowdABC</strong> es la plataforma de <strong>crowdfunding</strong> de inversión de Hispanoamérica. Hacemos posible que cualquiera pueda invertir junto con inversores profesionales en emprendimientos apasionantes a cambio de derechos sobre las empresas</p>
+					<p>¿En que quieres <strong>invertir</strong>?</p>
+				</section>
+			</div>
+
+			<!-- Extra -->
+			<div id="extra">
+				<div class="container container-topics">
+
+				</div>
+			</div>
+
+			<!-- Main -->
+			<div id="main">
+				<div class="container">
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Footer -->
+		<div id="footer" class="wrapper style2">
 			<div class="container">
-							</div>
-						</div>
+				<section>
+					<header class="major">
+						<img src="images/bgtrans.png" width="300">
+						<span class="byline">La mejor forma de invertir</span>
+					</header>		
+				</section>
+			</div>
+		</div>
 
-					</div>
+		<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				<div class="copyright">
+					Copyright © 2016 CrowdABC - Todos los Derechos Reservados - 
+					<p>Template by: <a href="http://templated.co">TEMPLATED</a></p>
+					<ul class="icons">
+						<li><a href="https://www.facebook.com/Crowdabc-1204477352896046/" class="fa fa-facebook"><span>Facebook</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-					<!-- Footer -->
-					<div id="footer" class="wrapper style2">
-						<div class="container">
-							<section>
-								<header class="major">
-									<img src="images/bgtrans.png" width="300">
-									<span class="byline">La mejor forma de invertir</span>
-								</header>		
-							</section>
-						</div>
-					</div>
+		<template id="topic-tpl">
+			<section class="4u"> <a href="#" class="image featured"><img src="images/diseño.jpg" alt="" width="350" height="210"></a>
+				<div class="box">
+					<a href="#" class="button">Diseño</a> </div>
+			</section>	
+		</template>
 
-					<!-- Copyright -->
-					<div id="copyright">
-						<div class="container">
-							<div class="copyright">
-								Copyright © 2016 CrowdABC - Todos los Derechos Reservados - 
-								<p>Template by: <a href="http://templated.co">TEMPLATED</a></p>
-								<ul class="icons">
-									<li><a href="https://www.facebook.com/Crowdabc-1204477352896046/" class="fa fa-facebook"><span>Facebook</span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<template id="topic-tpl">
-						<section class="4u"> <a href="#" class="image featured"><img src="images/diseño.jpg" alt="" width="350" height="210"></a>
-							<div class="box">
-								<a href="#" class="button">Diseño</a> </div>
-							</section>	
-						</template>
-
-						<template id="row-topic-tpl">
-							<div class="row no-collapse-1">
-										</div>
-						</template>
-
-					</body>
-					</html>
+		<template id="row-topic-tpl">
+			<div class="row no-collapse-1">
+			</div>
+		</template>
+		<script type="text/javascript">
+			(function(){
+				window.location.hash = '#openMessage';
+			})();
+			
+		</script>
+	</body>
+</html>
